@@ -4,7 +4,6 @@ export default function Skills({ scrollableRef }) {
   return (
     <div className="h-full w-full px-6 flex">
       <div className="flex">
-        <ScrollableSection scrollableRef={scrollableRef}>
           <div className="flex-1">
            <section className="max-w-4xl text-left space-y-4">
                 <div>
@@ -29,7 +28,6 @@ export default function Skills({ scrollableRef }) {
                 </div>
             </section>
           </div>
-        </ScrollableSection>
       </div>
     </div>
   );

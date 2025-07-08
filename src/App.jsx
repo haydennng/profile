@@ -34,7 +34,7 @@ export default function App() {
 
       setTimeout(() => {
         scrollLockRef.current = false;
-      }, 500);
+      }, 300);
     };
 
     window.addEventListener('wheel', handleGlobalScroll, { passive: false });

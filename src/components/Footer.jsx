@@ -17,7 +17,7 @@ export default function Footer({ activeIndex, setActiveIndex}) {
                 </button>
                 ))}
             </nav>
-            <h1 className="lg:text-7xl md:text-5xl sm:text-3xl text-3xl font-bold"> &lt;ng.hayden&gt;</h1>
+            <h1 className="lg:text-7xl md:text-5xl sm:text-3xl text-3xl font-bold"> &lt;/ng.hayden&gt;</h1>
         </footer>
     );
 }

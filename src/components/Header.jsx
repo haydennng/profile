@@ -9,13 +9,13 @@ export default function Header({ activeIndex, setActiveIndex }) {
           <h1 className="lg:text-7xl md:text-5xl sm:text-3xl text-3xl font-bold transition-all duration-300">
             &lt;ng.hayden&gt;
           </h1>
-          <ul className="flex flex-row sm:flex-col md:flex-col gap-1 text-lg font-bold text-gray-400">
+          <ul className="flex flex-row sm:flex-col md:flex-col sm:gap-1 gap-5 text-lg font-bold text-green-400">
             <li>#Design</li>
             <li>#Develop</li>
             <li>#Deploy</li>
           </ul>
 
-          {/* ✅ Contact Info for small screens (moved below #tags) */}
+          {/* Contact Info for small screens (moved below #tags) */}
           <div className="block sm:hidden text-sm text-gray-400 leading-5 mt-2">
             <p>haydenhtng@gmail.com</p>
             <a
@@ -29,7 +29,7 @@ export default function Header({ activeIndex, setActiveIndex }) {
           </div>
         </div>
 
-        {/* ✅ Contact Info for sm+ screens (still top-right) */}
+        {/* Contact Info for sm+ screens (still top-right) */}
         <div className="hidden sm:flex flex-col text-sm text-gray-400 text-right leading-5">
           <p>haydenhtng@gmail.com</p>
           <a

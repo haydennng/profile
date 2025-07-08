@@ -1,9 +1,9 @@
 export default function Experience() {
   return (
-    <div className="h-full w-full px-15 flex">
+    <div className="h-full w-full sm:px-15 px-5 flex">
       <div className="flex">
         {/* Column 1 */}
-        <div className="flex-1 ">
+        <div className="flex-1">
           <div>
             <h2 className="text-2xl font-bold text-green-400">Stargate Connections Inc</h2>
             <p className="text-sm text-gray-400">Burnaby, BC • June 2016 – Present</p>
@@ -26,7 +26,7 @@ export default function Experience() {
         </div>
 
         {/* Column 2 */}
-        <div className="flex-1">
+        <div className="flex-1 space-y-6">
           <div>
             <h3 className="text-xl font-semibold">Web Administrator</h3>
             <ul className="list-disc pl-5 mt-2 space-y-1 text-sm text-gray-300">

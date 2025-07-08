@@ -1,35 +1,77 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useEffect, useRef, useState } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import Experience from './components/Experience';
+import Skills from './components/Skills';
+import Education from './components/Education';
+import './App.css';
 
-function App() {
-  const [count, setCount] = useState(0)
+const sections = ['Experience', 'Skills', 'Education'];
+
+export default function App() {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const scrollLockRef = useRef(false);
+
+  const nextSection = () => setActiveIndex((i) => (i + 1) % sections.length);
+  const prevSection = () => setActiveIndex((i) => (i - 1 + sections.length) % sections.length);
+
+  useEffect(() => {
+    const handleGlobalScroll = (e) => {
+      e.preventDefault(); // prevent default browser scroll
+      if (scrollLockRef.current) return;
+
+      const isScrollingDown = e.deltaY > 0;
+      const isScrollingUp = e.deltaY < 0;
+
+      if (isScrollingDown) {
+        scrollLockRef.current = true;
+        nextSection();
+      } else if (isScrollingUp) {
+        scrollLockRef.current = true;
+        prevSection();
+      }
+
+      setTimeout(() => {
+        scrollLockRef.current = false;
+      }, 500);
+    };
+
+    window.addEventListener('wheel', handleGlobalScroll, { passive: false });
+    return () => window.removeEventListener('wheel', handleGlobalScroll);
+  }, []);
+
+  const sectionProps = {
+    scrollableRef: useRef(null), // still used in child component if needed
+  };
+
+  const renderSection = () => {
+    if (activeIndex === 0) return <Experience {...sectionProps} />;
+    if (activeIndex === 1) return <Skills {...sectionProps} />;
+    if (activeIndex === 2) return <Education {...sectionProps} />;
+    return null;
+  };
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    <div className="h-screen flex flex-col font-mono bg-[#1e1e1e] text-white overflow-hidden">
+      <Header activeIndex={activeIndex} setActiveIndex={setActiveIndex} />
 
-export default App
+      <main className="flex-1 mt-5 mb-5 overflow-hidden relative">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={activeIndex}
+            initial={{ opacity: 10, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -80 }}
+            transition={{ duration: 0.2 }}
+            className="absolute inset-0"
+          >
+            {renderSection()}
+          </motion.div>
+        </AnimatePresence>
+      </main>
+
+      <Footer activeIndex={activeIndex} setActiveIndex={setActiveIndex} />
+    </div>
+  );
+}

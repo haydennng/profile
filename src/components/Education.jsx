@@ -2,7 +2,7 @@ import ScrollableSection from './ScrollableSection';
 
 export default function Education({ scrollableRef }) {
   return (
-    <div className="h-full w-full sm:px-15 flex">
+    <div className="h-full w-full sm:px-15 px-5 flex">
       <div className="flex w-full">
   
             <section className="">

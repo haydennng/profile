@@ -2,7 +2,7 @@ import ScrollableSection from './ScrollableSection';
 
 export default function Skills({ scrollableRef }) {
   return (
-    <div className="h-full w-full sm:px-15 flex">
+    <div className="h-full w-full sm:px-15 px-5 flex">
       <div className="flex">
           <div className="flex-1">
            <section className="max-w-4xl text-left space-y-4">

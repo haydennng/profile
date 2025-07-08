@@ -1,3 +1,2 @@
 # profile
-Public profile 
-
+Hayden's Resume style profile. 

@@ -55,8 +55,10 @@ const experiences = [
 ];
 
 export default function ExperienceFolders() {
-  const [openCompany, setOpenCompany] = useState(null);
-  const [selectedRole, setSelectedRole] = useState(null);
+  const [openCompany, setOpenCompany] = useState('Stargate Connections Inc.');
+const [selectedRole, setSelectedRole] = useState(
+  experiences.find(e => e.company === 'Stargate Connections Inc.')?.roles[0] || null
+);
 
   const handleCompanyClick = (name) => {
     setOpenCompany(name === openCompany ? null : name);
@@ -70,7 +72,7 @@ export default function ExperienceFolders() {
   return (
     <div className="max-w-7xl px-4">
       {/* Compact Folder Nav */}
-      <div className="w-full max-w-xs text-xs font-mono bg-[#252526] text-gray-300 rounded-md border border-gray-700 mb-4">
+      <div className="w-full max-w-xs text-xs font-mono bg-[#252526] text-gray-300 rounded-md border border-gray-700">
         {experiences.map((org) => {
           const isOpen = openCompany === org.company;
 
@@ -85,26 +87,33 @@ export default function ExperienceFolders() {
               </button>
 
               {isOpen && (
-                <ul className="pl-5">
-                  {org.roles.map((role, i) => {
-                    const isActive = selectedRole?.title === role.title;
-                    return (
-                      <li key={i}>
-                        <button
-                          onClick={() => handleRoleClick(role)}
-                          className={`flex items-center w-full text-left px-2 py-1 rounded-md ${
-                            isActive
-                              ? 'bg-[#373737] text-white'
-                              : 'hover:bg-[#2a2a2a] text-gray-400'
-                          }`}
-                        >
-                          <span className="mr-2">📄</span>
-                          <span className="truncate">{role.title}</span>
-                        </button>
-                      </li>
-                    );
-                  })}
-                </ul>
+                <div
+                  className={`transition-all duration-300 overflow-hidden ${
+                    isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+                  }`}
+                >
+                  <ul className="pl-5 py-1">
+                    {org.roles.map((role, i) => {
+                      const isActive =
+                        selectedRole?.title === role.title && openCompany === org.company;
+                      return (
+                        <li key={i}>
+                          <button
+                            onClick={() => handleRoleClick(role)}
+                            className={`flex items-center w-full text-left px-2 py-1 rounded-md ${
+                              isActive
+                                ? 'bg-[#373737] text-white'
+                                : 'hover:bg-[#2a2a2a] text-gray-400'
+                            }`}
+                          >
+                            <span className="mr-2">📄</span>
+                            <span className="truncate">{role.title}</span>
+                          </button>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </div>
               )}
             </div>
           );
@@ -113,9 +122,12 @@ export default function ExperienceFolders() {
 
       {/* Detail Display */}
       {selectedRole && (
-        <div className="mt-6 border-t border-gray-600 pt-4">
-          <h2 className="text-xl font-semibold">{selectedRole.title}</h2>
-          <p className="text-gray-400 text-sm">{selectedRole.years}</p>
+        <div
+          key={selectedRole.title}
+          className="animate-fade-in border-gray-600 pt-2"
+        >
+          <h2 className="text-lg font-semibold text-white">{selectedRole.title}</h2>
+          <p className="text-gray-400 text-xs">{selectedRole.years}</p>
           <ul className="mt-3 list-disc ml-5 space-y-1 text-sm text-gray-300">
             {selectedRole.description.map((line, i) => (
               <li key={i}>{line}</li>
@@ -125,7 +137,7 @@ export default function ExperienceFolders() {
             {selectedRole.stack.map((tech, i) => (
               <span
                 key={i}
-                className="px-2 py-1 text-xs bg-blue-700/30 text-blue-200 rounded-full"
+                className="px-2 py-1 text-[10px] bg-blue-700/30 text-blue-200 rounded-full"
               >
                 {tech}
               </span>
@@ -133,6 +145,7 @@ export default function ExperienceFolders() {
           </div>
         </div>
       )}
+
     </div>
   );
 }

@@ -6,7 +6,7 @@ export default function Header({ activeIndex, setActiveIndex }) {
       {/* Top row: name/tagline on left, contact on right (desktop/tablet only) */}
       <div className="flex justify-between items-start">
         <div className="flex flex-col sm:flex-row sm:items-start md:flex-row md:items-start gap-2 sm:gap-6 md:gap-6">
-          <h1 className="lg:text-7xl md:text-5xl sm:text-3xl text-3xl font-bold transition-all duration-300">
+          <h1 className="lg:text-7xl md:text-5xl text-4xl font-bold transition-all duration-300">
             &lt;ng.hayden&gt;
           </h1>
           <ul className="flex flex-row sm:flex-col md:flex-col sm:gap-1 gap-5 text-lg font-bold text-green-400">

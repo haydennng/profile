@@ -56,7 +56,7 @@ export default function App() {
     <div className="min-h-screen flex flex-col font-mono bg-[#1e1e1e] text-white">
       <Header activeIndex={activeIndex} setActiveIndex={setActiveIndex} />
 
-      <main className="flex-1 mt-5 mb-5 overflow-hidden relative">
+      <main className="flex-1 mt-2 mb-5 overflow-hidden relative">
         <AnimatePresence mode="wait">
           <motion.div
             key={activeIndex}

@@ -3,17 +3,17 @@ const sections = ['Experience', 'Skills', 'Education'];
 export default function Footer({ activeIndex, setActiveIndex}) {
     return (
         
-         <footer className="px-6 py-6">
+         <footer className="px-6 pb-6">
             <nav className="flex gap-4 mt-5 lowercase">
                 {sections.map((title, idx) => (
                 <button
                     key={title}
                     onClick={() => setActiveIndex(idx)}
                     className={`text-lg ${
-                    idx === activeIndex ? 'text-green-400' : 'text-gray-400'
-                    } hover:text-green-300 lowercase cursor-pointer`}
+                        idx === activeIndex ? 'text-green-400 font-bold' : 'text-gray-400'
+                    } hover:text-green-300 lowercase cursor-pointer `}
                 >
-                     {idx === activeIndex ? `<${title}>` : title}
+                     {idx === activeIndex ? `</${title}>` : title}
                 </button>
                 ))}
             </nav>

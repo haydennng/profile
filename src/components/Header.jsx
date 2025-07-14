@@ -16,7 +16,7 @@ export default function Header({ activeIndex, setActiveIndex }) {
           </ul>
 
           {/* Contact Info for small screens (moved below #tags) */}
-          <div className="block sm:hidden text-sm text-gray-400 leading-5 mt-2">
+          <div className=" sm:flex sm:flex-col text-sm text-gray-400 leading-5 sm:mt-2">
             <p>haydenhtng@gmail.com</p>
             <a
               href="https://linkedin.com/in/hayden-ng-linked"
@@ -28,19 +28,6 @@ export default function Header({ activeIndex, setActiveIndex }) {
             <p>Port Moody, BC</p>
           </div>
         </div>
-
-        {/* Contact Info for sm+ screens (still top-right) */}
-        <div className="hidden sm:flex flex-col text-sm text-gray-400 text-right leading-5">
-          <p>haydenhtng@gmail.com</p>
-          <a
-            href="https://linkedin.com/in/hayden-ng-linked"
-            target="_blank"
-            className="hover:text-green-300"
-          >
-            linkedin.com/in/hayden-ng-linked
-          </a>
-          <p>Port Moody, BC</p>
-        </div>
       </div>
 
       {/* Summary paragraph */}
@@ -49,14 +36,14 @@ export default function Header({ activeIndex, setActiveIndex }) {
       </p>
 
       {/* Nav */}
-      <nav className="flex gap-4 mt-5 lowercase">
+      <nav className="flex gap-4 sm:mt-5 lowercase">
         {sections.map((title, idx) => (
           <button
             key={title}
             onClick={() => setActiveIndex(idx)}
             className={`text-lg ${
-              idx === activeIndex ? 'text-green-400' : 'text-gray-400'
-            } hover:text-green-300 lowercase cursor-pointer`}
+              idx === activeIndex ? 'text-green-400 font-bold' : 'text-gray-400'
+            } hover:text-green-300 lowercase cursor-pointer `}
           >
             {idx === activeIndex ? `<${title}>` : title}
           </button>

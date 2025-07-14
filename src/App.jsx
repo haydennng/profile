@@ -53,7 +53,7 @@ export default function App() {
   };
 
   return (
-    <div className="h-screen flex flex-col font-mono bg-[#1e1e1e] text-white overflow-hidden">
+    <div className="min-h-screen flex flex-col font-mono bg-[#1e1e1e] text-white">
       <Header activeIndex={activeIndex} setActiveIndex={setActiveIndex} />
 
       <main className="flex-1 mt-5 mb-5 overflow-hidden relative">

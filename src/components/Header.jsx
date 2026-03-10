@@ -1,4 +1,4 @@
-const sections = ['Experience', 'Skills', 'Education'];
+const sections = ['Experience', 'Projects', 'Skills', 'Education'];
 
 export default function Header({ activeIndex, setActiveIndex }) {
   return (

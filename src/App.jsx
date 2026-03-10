@@ -4,10 +4,11 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import Experience from './components/Experience';
 import Skills from './components/Skills';
+import Projects from './components/Projects';
 import Education from './components/Education';
 import './App.css';
 
-const sections = ['Experience', 'Skills', 'Education'];
+const sections = ['Experience', 'Projects', 'Skills', 'Education'];
 
 export default function App() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -47,8 +48,9 @@ export default function App() {
 
   const renderSection = () => {
     if (activeIndex === 0) return <Experience {...sectionProps} />;
-    if (activeIndex === 1) return <Skills {...sectionProps} />;
-    if (activeIndex === 2) return <Education {...sectionProps} />;
+    if (activeIndex === 1) return <Projects {...sectionProps} />;
+    if (activeIndex === 2) return <Skills {...sectionProps} />;
+    if (activeIndex === 3) return <Education {...sectionProps} />;
     return null;
   };
 

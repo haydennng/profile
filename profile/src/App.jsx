@@ -82,19 +82,19 @@ function Header() {
     <header className="site-header">
       <div className="header-left">
         <h1 className="site-title">&lt;ng.hayden&gt;</h1>
+        <div className="header-contact">
+          <span>haydenhtng@gmail.com</span>
+          <a href="https://www.linkedin.com/in/hayden-ng-linked" target="_blank" rel="noreferrer">
+            linkedin.com/in/hayden-ng-linked
+          </a>
+          <span>Port Moody, BC</span>
+        </div>
       </div>
       <nav className="header-nav">
         <a href="#experience" className="hash-link">#Design</a>
         <a href="#experience" className="hash-link">#Develop</a>
         <a href="#experience" className="hash-link">#Deploy</a>
       </nav>
-      <div className="header-contact">
-        <span>haydenhtng@gmail.com</span>
-        <a href="https://www.linkedin.com/in/hayden-ng-linked" target="_blank" rel="noreferrer">
-          linkedin.com/in/hayden-ng-linked
-        </a>
-        <span>Port Moody, BC</span>
-      </div>
     </header>
   )
 }

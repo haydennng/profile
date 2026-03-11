@@ -12,17 +12,18 @@
 .site-header {
   display: flex;
   align-items: flex-start;
-  gap: 2rem;
+  justify-content: space-between;
+  gap: 1.5rem;
   margin-bottom: 2rem;
-  flex-wrap: wrap;
 }
 
 .header-left {
-  flex-shrink: 0;
+  flex-shrink: 1;
+  min-width: 0;
 }
 
 .site-title {
-  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-size: clamp(2.4rem, 6vw, 3.84rem);
   font-weight: 900;
   color: var(--text);
   letter-spacing: -0.02em;
@@ -34,6 +35,8 @@
   flex-direction: column;
   gap: 0.3rem;
   padding-top: 0.15rem;
+  flex-shrink: 0;
+  text-align: right;
 }
 
 .hash-link {
@@ -55,8 +58,7 @@
   gap: 0.25rem;
   font-size: 0.85rem;
   color: var(--text-muted);
-  padding-top: 0.25rem;
-  margin-left: auto;
+  margin-top: 0.4rem;
 }
 
 .header-contact a {
@@ -71,12 +73,14 @@
 .hero-bio {
   margin-bottom: 2rem;
   max-width: 860px;
+  border-left: 2px solid var(--accent);
+  padding-left: 1.25rem;
 }
 
 .hero-bio p {
-  font-size: 0.95rem;
-  color: var(--text-muted);
-  line-height: 1.8;
+  font-size: 1rem;
+  color: var(--text);
+  line-height: 1.9;
 }
 
 /* ── Section Nav ────────────────────────────────────────── */
@@ -375,7 +379,7 @@
 }
 
 .footer-title {
-  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-size: clamp(2.4rem, 6vw, 3.84rem);
   font-weight: 900;
   color: var(--text);
   letter-spacing: -0.02em;
@@ -383,15 +387,6 @@
 
 /* ── Responsive ─────────────────────────────────────────── */
 @media (max-width: 640px) {
-  .site-header {
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  .header-contact {
-    margin-left: 0;
-  }
-
   .exp-layout {
     flex-direction: column;
   }

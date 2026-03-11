@@ -229,14 +229,14 @@
 }
 
 .role-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
   flex-shrink: 0;
 }
 
-.role-body {
-  display: flex;
-  gap: 1.25rem;
-  flex: 1;
-  min-height: 0;
+.role-header-left {
+  flex-shrink: 0;
 }
 
 .role-main {
@@ -305,10 +305,10 @@
 /* ── Stat Strip ─────────────────────────────────────────── */
 .stat-strip {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   gap: 0.5rem;
-  flex-shrink: 0;
-  width: 88px;
+  flex-wrap: wrap;
+  align-items: flex-start;
 }
 
 .stat-card {

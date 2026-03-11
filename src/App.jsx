@@ -218,26 +218,11 @@ function RoleDetail({ role }) {
   return (
     <div className="role-detail">
       <div className="role-header">
-        <h3 className="role-title">{role.title}</h3>
-        {role.subtitle && <p className="role-subtitle">{role.subtitle}</p>}
-        <p className="role-period">{role.period}</p>
-      </div>
-
-      <div className="role-body">
-        <div className="role-main">
-          <ul className="role-bullets">
-            {role.bullets.map((b, i) => (
-              <li key={i}>
-                <span className="bullet-cat">{b.cat}</span>
-                <span className="bullet-text"><HighlightNumbers text={b.text} /></span>
-              </li>
-            ))}
-          </ul>
-          <div className="role-tags">
-            {role.tags.map(t => <span className="role-tag" key={t}>{t}</span>)}
-          </div>
+        <div className="role-header-left">
+          <h3 className="role-title">{role.title}</h3>
+          {role.subtitle && <p className="role-subtitle">{role.subtitle}</p>}
+          <p className="role-period">{role.period}</p>
         </div>
-
         {role.stats && (
           <div className="stat-strip">
             {role.stats.map(s => (
@@ -248,6 +233,20 @@ function RoleDetail({ role }) {
             ))}
           </div>
         )}
+      </div>
+
+      <div className="role-main">
+        <ul className="role-bullets">
+          {role.bullets.map((b, i) => (
+            <li key={i}>
+              <span className="bullet-cat">{b.cat}</span>
+              <span className="bullet-text"><HighlightNumbers text={b.text} /></span>
+            </li>
+          ))}
+        </ul>
+        <div className="role-tags">
+          {role.tags.map(t => <span className="role-tag" key={t}>{t}</span>)}
+        </div>
       </div>
     </div>
   )

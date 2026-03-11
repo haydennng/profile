@@ -153,10 +153,7 @@ function Hero() {
   return (
     <section className="hero-bio">
       <p>
-        Full-stack developer with 8+ years of experience building secure, data-driven web
-        applications and analytics platforms using ColdFusion, PHP, MySQL, JavaScript, and React.
-        From backend logic to frontend polish — and recently, AI code evaluation —
-        I bridge performance with precision.
+        Full-stack developer with 8+ years of experience building secure, data-driven web applications and internal platforms. Experienced across backend systems, databases, and modern frontend frameworks including ColdFusion, PHP, MySQL, JavaScript, and React. Known for developing reliable solutions that streamline workflows, improve data accuracy, and support high-traffic production environments.
       </p>
     </section>
   )

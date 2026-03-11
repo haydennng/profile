@@ -32,7 +32,7 @@ export default function Header({ activeIndex, setActiveIndex }) {
 
       {/* Summary paragraph */}
       <p className="mt-4 max-w-4xl text-base text-gray-500 font-normal sm:block hidden">
-        Full-stack developer with 8+ years of experience building secure, high-traffic apps using ColdFusion, PHP, MySQL, JavaScript, HTML, and CSS. From backend logic to frontend polish — and recently, AI code evaluation — I bridge performance with precision.
+        Full-stack developer with 8+ years of experience building secure, data-driven web applications and internal platforms. Experienced across backend systems, databases, and modern frontend frameworks including ColdFusion, PHP, MySQL, JavaScript, and React. Known for developing reliable solutions that streamline workflows, improve data accuracy, and support high-traffic production environments.
       </p>
 
       {/* Nav */}

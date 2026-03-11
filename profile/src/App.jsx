@@ -180,7 +180,7 @@ function SectionNav({ active, onChange }) {
 }
 
 function FileTree({ companies, selectedRole, onSelect }) {
-  const [open, setOpen] = useState({ stargate: true, dataannotations: false })
+  const [open, setOpen] = useState({ stargate: true, dataannotations: true })
 
   return (
     <div className="file-tree">
@@ -324,14 +324,20 @@ function EducationSection() {
   )
 }
 
-function Footer({ activeSection }) {
+function Footer({ activeSection, onChange }) {
+  const sections = ['experience', 'projects', 'skills', 'education']
   return (
     <footer className="site-footer">
       <nav className="section-nav section-nav-footer">
-        <span className="snav-tag">&lt;/{activeSection}&gt;</span>
-        <span className="snav-plain">projects</span>
-        <span className="snav-plain">skills</span>
-        <span className="snav-plain">education</span>
+        {sections.map(s => (
+          <button
+            key={s}
+            className={activeSection === s ? 'snav-tag snav-active' : 'snav-plain'}
+            onClick={() => onChange(s)}
+          >
+            {activeSection === s ? <>&lt;/{s}&gt;</> : s}
+          </button>
+        ))}
       </nav>
       <h2 className="footer-title">&lt;/ng.hayden&gt;</h2>
     </footer>
@@ -358,7 +364,7 @@ export default function App() {
       <Hero />
       <SectionNav active={activeSection} onChange={setActiveSection} />
       {renderSection()}
-      <Footer activeSection={activeSection} />
+      <Footer activeSection={activeSection} onChange={setActiveSection} />
     </div>
   )
 }

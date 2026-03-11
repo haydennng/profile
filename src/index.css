@@ -25,12 +25,13 @@
   -webkit-font-smoothing: antialiased;
 }
 
-html { scroll-behavior: smooth; }
-
-body { min-height: 100vh; }
+html, body {
+  height: 100%;
+  overflow: hidden;
+}
 
 #root {
-  min-height: 100vh;
+  height: 100%;
   display: flex;
   flex-direction: column;
 }

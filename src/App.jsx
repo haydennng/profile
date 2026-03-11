@@ -267,7 +267,7 @@ function ExperienceSection() {
 function ProjectsSection() {
   return (
     <section className="section" id="projects">
-      <div className="projects-list">
+      <div className="section-scroll"><div className="projects-list">
         {PROJECTS.map(p => (
           <div className="proj-card" key={p.name}>
             <div className="proj-header">
@@ -286,7 +286,7 @@ function ProjectsSection() {
             )}
           </div>
         ))}
-      </div>
+      </div></div>
     </section>
   )
 }
@@ -294,7 +294,7 @@ function ProjectsSection() {
 function SkillsSection() {
   return (
     <section className="section" id="skills">
-      <div className="skills-list">
+      <div className="section-scroll"><div className="skills-list">
         {Object.entries(SKILLS).map(([cat, items]) => (
           <div key={cat} className="skill-row">
             <span className="skill-cat">{cat}</span>
@@ -303,7 +303,7 @@ function SkillsSection() {
             </div>
           </div>
         ))}
-      </div>
+      </div></div>
     </section>
   )
 }
@@ -311,12 +311,12 @@ function SkillsSection() {
 function EducationSection() {
   return (
     <section className="section" id="education">
-      <div className="edu-entry">
+      <div className="section-scroll"><div className="edu-entry">
         <h3 className="role-title">Computer Systems Technology — Client Server Specialty</h3>
         <p className="role-period">2015 – 2017</p>
         <p className="edu-school">British Columbia Institute of Technology, Burnaby, BC</p>
         <p className="edu-cred">2-Year Diploma</p>
-      </div>
+      </div></div>
     </section>
   )
 }

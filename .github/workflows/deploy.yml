@@ -18,15 +18,13 @@ jobs:
           node-version: 20
 
       - name: Install dependencies
-        working-directory: profile
         run: npm install
 
       - name: Build
-        working-directory: profile
         run: npm run build
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: profile/dist
+          publish_dir: dist

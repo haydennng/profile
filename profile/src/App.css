@@ -228,10 +228,25 @@
   margin-bottom: 0.25rem;
 }
 
+.role-subtitle {
+  font-size: 0.82rem;
+  color: var(--accent);
+  margin-bottom: 0.1rem;
+}
+
 .role-period {
   font-size: 0.82rem;
   color: var(--text-faint);
   margin-bottom: 1.25rem;
+}
+
+.tree-role-title {
+  color: inherit;
+}
+
+.tree-role-sub {
+  font-size: 0.72rem;
+  color: var(--text-faint);
 }
 
 .role-bullets {

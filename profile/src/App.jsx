@@ -9,40 +9,57 @@ const COMPANIES = [
     location: 'Burnaby, BC',
     roles: [
       {
-        id: 'fsd',
-        title: 'Full Stack Developer',
-        period: '2016 – Present',
+        id: 'marr',
+        title: 'MARR Collection Portal',
+        subtitle: 'Full Stack Developer',
+        period: 'May 2018 – Present',
         stats: [
           { value: '600+', label: 'Users' },
           { value: '300+', label: 'Sites' },
-          { value: '50%',  label: 'Monitoring Time Saved' },
-          { value: '8+',   label: 'Years' },
+          { value: '6+',   label: 'Years Running' },
         ],
         bullets: [
-          { cat: 'PLATFORM',    text: 'Designed and deployed a multi-tenant web platform (MARR Collection Portal) serving 600+ users across 300+ sites for appliance collection reporting and financial reconciliation.' },
-          { cat: 'BACKEND',     text: 'Built backend processing pipelines and API integration services that validate user submissions and generate XML feeds for external accounting systems.' },
-          { cat: 'DATABASE',    text: 'Architected relational database schemas and optimized complex SQL queries to support high-volume reporting during peak claim cycles.' },
-          { cat: 'SECURITY',    text: 'Implemented server-side validation to detect anomalies, prevent duplicate submissions, and enforce reporting thresholds — significantly reducing administrative corrections.' },
-          { cat: 'ANALYTICS',   text: 'Built data-driven dashboards using JavaScript, DataTables, and Google Charts to help non-technical users analyze reporting metrics.' },
-          { cat: 'AUTOMATION',  text: 'Developed MonitNg — a monitoring platform tracking 200+ websites for vulnerabilities, updates, and disk usage, reducing monitoring time by 50%.' },
-          { cat: 'DEVOPS',      text: 'Developed reusable backend modules and scheduled batch jobs to automate daily/monthly reporting pipelines.' },
+          { cat: 'PLATFORM',   text: 'Designed and deployed a multi-tenant web platform serving 600+ users across 300+ sites, enabling large-scale appliance collection reporting and financial reconciliation workflows.' },
+          { cat: 'BACKEND',    text: 'Designed backend processing pipelines and API-style integration services that validate user submissions and generate XML feeds for external accounting systems.' },
+          { cat: 'DATABASE',   text: 'Architected relational database schemas and optimized complex SQL queries and indexing strategies to support high-volume reporting and operational analytics during peak claim cycles.' },
+          { cat: 'SECURITY',   text: 'Implemented server-side validation frameworks to detect anomalies, prevent duplicate submissions, and enforce reporting thresholds, significantly reducing administrative corrections.' },
+          { cat: 'ANALYTICS',  text: 'Built data-driven interfaces and dashboards using JavaScript, DataTables, and Google Charts to help non-technical users review submissions and analyze reporting metrics.' },
+          { cat: 'AUTOMATION', text: 'Developed reusable backend modules and scheduled batch jobs to aggregate transactional data and automate daily/monthly reporting pipelines.' },
         ],
-        tags: ['PHP', 'ColdFusion', 'MySQL', 'JavaScript', 'jQuery', 'DataTables', 'Node.js', 'REST API'],
+        tags: ['ColdFusion', 'PHP', 'MySQL', 'JavaScript', 'jQuery', 'DataTables', 'Google Charts', 'REST API', 'XML'],
+      },
+      {
+        id: 'monitng',
+        title: 'MonitNg',
+        subtitle: 'Full Stack Developer',
+        period: 'June 2016 – May 2019',
+        stats: [
+          { value: '200+', label: 'Sites Monitored' },
+          { value: '50%',  label: 'Monitoring Time Saved' },
+        ],
+        bullets: [
+          { cat: 'PLATFORM',   text: 'Developed a web application solution for monitoring 200+ websites for vulnerabilities, updates, and disk space usage.' },
+          { cat: 'ANALYTICS',  text: 'Aggregated and normalized server data to generate actionable monitoring insights and automated vulnerability alerts.' },
+          { cat: 'SECURITY',   text: 'Implemented automated vulnerability tracking for WordPress plugins and themes, proactively alerting clients to security risks.' },
+          { cat: 'AUTOMATION', text: 'Reduced monitoring time by 50% through automation and reporting enhancements.' },
+        ],
+        tags: ['PHP', 'MySQL', 'JavaScript', 'WordPress', 'Linux', 'Automation'],
       },
       {
         id: 'sysadmin',
         title: 'Systems Administrator',
-        period: '2016 – Present',
+        subtitle: 'Infrastructure & Systems',
+        period: 'June 2016 – Present',
         stats: [
           { value: '200+', label: 'Hosted Apps' },
           { value: '8+',   label: 'Years' },
         ],
         bullets: [
-          { cat: 'INFRA',     text: 'Maintained Linux production environments supporting 200+ hosted web applications.' },
-          { cat: 'DEVOPS',    text: 'Managed server configurations, deployments, and security patching across production infrastructure.' },
-          { cat: 'SECURITY',  text: 'Administered WordPress environments and implemented automated vulnerability alerting for plugins and themes.' },
+          { cat: 'INFRA',    text: 'Maintained Linux production environments supporting 200+ hosted web applications.' },
+          { cat: 'DEVOPS',   text: 'Managed server configurations, deployments, and security patching across production infrastructure.' },
+          { cat: 'SECURITY', text: 'Administered WordPress environments and implemented automated vulnerability alerting for plugins and themes.' },
         ],
-        tags: ['Linux', 'Docker', 'Git', 'WordPress', 'Barracuda', 'phpMyAdmin'],
+        tags: ['Linux', 'Docker', 'Git', 'Server Administration', 'WordPress', 'phpMyAdmin', 'Barracuda'],
       },
     ],
   },
@@ -54,18 +71,19 @@ const COMPANIES = [
       {
         id: 'ai-eval',
         title: 'AI Code & Logic Evaluator',
+        subtitle: 'Contract',
         period: 'Jan 2025 – Present',
         stats: [
-          { value: 'AI',      label: 'Model Evaluation' },
-          { value: 'QA',      label: 'Code Review' },
-          { value: '100%',    label: 'Remote' },
+          { value: 'AI',   label: 'Model Evaluation' },
+          { value: 'QA',   label: 'Code Review' },
+          { value: '100%', label: 'Remote' },
         ],
         bullets: [
-          { cat: 'EVAL',      text: 'Evaluated AI-generated code and software solutions for correctness, constraint adherence, and structural reliability.' },
-          { cat: 'TESTING',   text: 'Designed adversarial test inputs to expose model failure modes and improve evaluation datasets.' },
-          { cat: 'ANALYSIS',  text: 'Analyzed model outputs to identify recurring logic errors and inform improvements to AI QA processes.' },
+          { cat: 'EVAL',     text: 'Evaluated AI-generated code and software solutions for correctness, constraint adherence, and structural reliability.' },
+          { cat: 'TESTING',  text: 'Designed adversarial test inputs to expose model failure modes and improve evaluation datasets.' },
+          { cat: 'ANALYSIS', text: 'Analyzed model outputs to identify recurring logic errors and inform improvements to AI QA processes.' },
         ],
-        tags: ['Python', 'AI Evaluation', 'Code Review', 'QA'],
+        tags: ['Python', 'AI Evaluation', 'Code Review', 'QA', 'Adversarial Testing'],
       },
     ],
   },
@@ -74,9 +92,10 @@ const COMPANIES = [
 const SKILLS = {
   Languages:          ['JavaScript', 'Python', 'SQL', 'PHP', 'ColdFusion'],
   Frontend:           ['React', 'HTML/CSS', 'DataTables', 'Bootstrap', 'jQuery'],
-  'Back End':         ['Node.js', 'REST API', 'MySQL', 'Flask', 'SQLAlchemy', 'Relational Data Modeling'],
-  'Data & Analytics': ['Power BI', 'SQL Analytics', 'Google Charts', 'Data Aggregation'],
-  Infrastructure:     ['Docker', 'Linux', 'Git', 'GitHub Actions', 'CI/CD', 'Server Administration'],
+  'Back End':         ['Node.js', 'REST API Development', 'MySQL', 'Relational Data Modeling', 'Flask', 'SQLAlchemy'],
+  'Data & Analytics': ['Power BI', 'SQL Analytics', 'Data Aggregation Pipelines', 'Google Charts'],
+  Infrastructure:     ['Docker', 'Linux', 'Git', 'Server Administration', 'GitHub Actions', 'CI/CD'],
+  'Platform Tools':   ['WordPress', 'phpMyAdmin', 'Barracuda'],
 }
 
 const PROJECTS = [
@@ -183,7 +202,10 @@ function FileTree({ companies, selectedRole, onSelect }) {
                   onClick={() => onSelect(role)}
                 >
                   <span className="tree-file-icon">📄</span>
-                  {role.title}
+                  <span>
+                    <span className="tree-role-title">{role.title}</span>
+                    {role.subtitle && <span className="tree-role-sub"> — {role.subtitle}</span>}
+                  </span>
                 </button>
               ))}
             </div>
@@ -199,6 +221,7 @@ function RoleDetail({ role }) {
   return (
     <div className="role-detail">
       <h3 className="role-title">{role.title}</h3>
+      {role.subtitle && <p className="role-subtitle">{role.subtitle}</p>}
       <p className="role-period">{role.period}</p>
 
       {/* Stat cards */}

@@ -1,34 +1,48 @@
-import ScrollableSection from './ScrollableSection';
+const skills = [
+  {
+    category: 'Languages',
+    items: ['JavaScript', 'Python', 'SQL', 'PHP', 'ColdFusion'],
+  },
+  {
+    category: 'Frontend',
+    items: ['React', 'HTML/CSS', 'DataTables', 'Bootstrap', 'jQuery'],
+  },
+  {
+    category: 'Back End',
+    items: ['Node.js', 'REST API Development', 'MySQL', 'Relational Data Modeling', 'Flask', 'SQLAlchemy'],
+  },
+  {
+    category: 'Data & Analytics',
+    items: ['Power BI', 'SQL Analytics', 'Data Aggregation Pipelines', 'Google Charts'],
+  },
+  {
+    category: 'Infrastructure',
+    items: ['Docker', 'Linux', 'Git', 'Server Administration', 'GitHub Actions', 'CI/CD'],
+  },
+  {
+    category: 'Platform Tools',
+    items: ['WordPress', 'phpMyAdmin', 'Barracuda', 'cPanel & WHM'],
+  },
+];
 
-export default function Skills({ scrollableRef }) {
+export default function Skills() {
   return (
-    <div className="h-full w-full sm:px-15 px-5 flex">
-      <div className="flex">
-          <div className="flex-1">
-           <section className="max-w-4xl text-left space-y-4">
-                <div>
-                    <h2 className="text-xl font-bold text-green-400">Frontend</h2>
-                    <p>HTML/CSS (10y), JavaScript (8y), React (2y), Bootstrap, DataTables</p>
-                </div>
-                <div>
-                    <h2 className="text-xl font-bold text-green-400">Backend</h2>
-                    <p>ColdFusion, PHP, MySQL (8y), Java (3y), Python (1y)</p>
-                </div>
-                <div>
-                    <h2 className="text-xl font-bold text-green-400">DevOps & Hosting</h2>
-                    <p>Git, Bash, Ubuntu Linux, Tomcat, Jetty, cPanel/WHM, DNS, SSL</p>
-                </div>
-                <div>
-                    <h2 className="text-xl font-bold text-green-400">Tools</h2>
-                    <p>WordPress, phpMyAdmin, CentOS, Cerb, Barracuda</p>
-                </div>
-                <div>
-                    <h2 className="text-xl font-bold text-green-400">Other</h2>
-                    <p>English & Cantonese, hardware knowledge, Class 5 BC driver’s license</p>
-                </div>
-            </section>
+    <div className="max-w-4xl px-4 space-y-5">
+      {skills.map(({ category, items }) => (
+        <div key={category} className="flex items-start gap-4 flex-wrap sm:flex-nowrap">
+          <h2 className="text-sm font-bold text-green-400 w-36 flex-shrink-0 mt-1">{category}</h2>
+          <div className="flex flex-wrap gap-2">
+            {items.map((item) => (
+              <span
+                key={item}
+                className="px-2 py-1 text-[11px] bg-blue-700/30 text-blue-200 rounded-full"
+              >
+                {item}
+              </span>
+            ))}
           </div>
-      </div>
+        </div>
+      ))}
     </div>
   );
 }

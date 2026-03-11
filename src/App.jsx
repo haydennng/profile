@@ -217,34 +217,37 @@ function RoleDetail({ role }) {
   if (!role) return <div className="role-detail role-empty">Select a role to view details.</div>
   return (
     <div className="role-detail">
-      <h3 className="role-title">{role.title}</h3>
-      {role.subtitle && <p className="role-subtitle">{role.subtitle}</p>}
-      <p className="role-period">{role.period}</p>
+      <div className="role-header">
+        <h3 className="role-title">{role.title}</h3>
+        {role.subtitle && <p className="role-subtitle">{role.subtitle}</p>}
+        <p className="role-period">{role.period}</p>
+      </div>
 
-      {/* Stat cards */}
-      {role.stats && (
-        <div className="stat-strip">
-          {role.stats.map(s => (
-            <div className="stat-card" key={s.label}>
-              <span className="stat-value">{s.value}</span>
-              <span className="stat-label">{s.label}</span>
-            </div>
-          ))}
+      <div className="role-body">
+        <div className="role-main">
+          <ul className="role-bullets">
+            {role.bullets.map((b, i) => (
+              <li key={i}>
+                <span className="bullet-cat">{b.cat}</span>
+                <span className="bullet-text"><HighlightNumbers text={b.text} /></span>
+              </li>
+            ))}
+          </ul>
+          <div className="role-tags">
+            {role.tags.map(t => <span className="role-tag" key={t}>{t}</span>)}
+          </div>
         </div>
-      )}
 
-      {/* Categorised bullets */}
-      <ul className="role-bullets">
-        {role.bullets.map((b, i) => (
-          <li key={i}>
-            <span className="bullet-cat">{b.cat}</span>
-            <span className="bullet-text"><HighlightNumbers text={b.text} /></span>
-          </li>
-        ))}
-      </ul>
-
-      <div className="role-tags">
-        {role.tags.map(t => <span className="role-tag" key={t}>{t}</span>)}
+        {role.stats && (
+          <div className="stat-strip">
+            {role.stats.map(s => (
+              <div className="stat-card" key={s.label}>
+                <span className="stat-value">{s.value}</span>
+                <span className="stat-label">{s.label}</span>
+              </div>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   )

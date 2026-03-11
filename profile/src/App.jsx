@@ -12,14 +12,20 @@ const COMPANIES = [
         id: 'fsd',
         title: 'Full Stack Developer',
         period: '2016 – Present',
+        stats: [
+          { value: '600+', label: 'Users' },
+          { value: '300+', label: 'Sites' },
+          { value: '50%',  label: 'Monitoring Time Saved' },
+          { value: '8+',   label: 'Years' },
+        ],
         bullets: [
-          'Designed and deployed a multi-tenant web platform (MARR Collection Portal) serving 600+ users across 300+ sites for appliance collection reporting and financial reconciliation.',
-          'Built backend processing pipelines and API integration services that validate user submissions and generate XML feeds for external accounting systems.',
-          'Architected relational database schemas and optimized complex SQL queries to support high-volume reporting during peak claim cycles.',
-          'Implemented server-side validation to detect anomalies, prevent duplicate submissions, and enforce reporting thresholds — significantly reducing administrative corrections.',
-          'Built data-driven dashboards using JavaScript, DataTables, and Google Charts to help non-technical users analyze reporting metrics.',
-          'Developed MonitNg — a monitoring platform tracking 200+ websites for vulnerabilities, updates, and disk usage, reducing monitoring time by 50%.',
-          'Developed reusable backend modules and scheduled batch jobs to automate daily/monthly reporting pipelines.',
+          { cat: 'PLATFORM',    text: 'Designed and deployed a multi-tenant web platform (MARR Collection Portal) serving 600+ users across 300+ sites for appliance collection reporting and financial reconciliation.' },
+          { cat: 'BACKEND',     text: 'Built backend processing pipelines and API integration services that validate user submissions and generate XML feeds for external accounting systems.' },
+          { cat: 'DATABASE',    text: 'Architected relational database schemas and optimized complex SQL queries to support high-volume reporting during peak claim cycles.' },
+          { cat: 'SECURITY',    text: 'Implemented server-side validation to detect anomalies, prevent duplicate submissions, and enforce reporting thresholds — significantly reducing administrative corrections.' },
+          { cat: 'ANALYTICS',   text: 'Built data-driven dashboards using JavaScript, DataTables, and Google Charts to help non-technical users analyze reporting metrics.' },
+          { cat: 'AUTOMATION',  text: 'Developed MonitNg — a monitoring platform tracking 200+ websites for vulnerabilities, updates, and disk usage, reducing monitoring time by 50%.' },
+          { cat: 'DEVOPS',      text: 'Developed reusable backend modules and scheduled batch jobs to automate daily/monthly reporting pipelines.' },
         ],
         tags: ['PHP', 'ColdFusion', 'MySQL', 'JavaScript', 'jQuery', 'DataTables', 'Node.js', 'REST API'],
       },
@@ -27,10 +33,14 @@ const COMPANIES = [
         id: 'sysadmin',
         title: 'Systems Administrator',
         period: '2016 – Present',
+        stats: [
+          { value: '200+', label: 'Hosted Apps' },
+          { value: '8+',   label: 'Years' },
+        ],
         bullets: [
-          'Maintained Linux production environments supporting 200+ hosted web applications.',
-          'Managed server configurations, deployments, and security patching across production infrastructure.',
-          'Administered WordPress environments and implemented automated vulnerability alerting for plugins and themes.',
+          { cat: 'INFRA',     text: 'Maintained Linux production environments supporting 200+ hosted web applications.' },
+          { cat: 'DEVOPS',    text: 'Managed server configurations, deployments, and security patching across production infrastructure.' },
+          { cat: 'SECURITY',  text: 'Administered WordPress environments and implemented automated vulnerability alerting for plugins and themes.' },
         ],
         tags: ['Linux', 'Docker', 'Git', 'WordPress', 'Barracuda', 'phpMyAdmin'],
       },
@@ -45,10 +55,15 @@ const COMPANIES = [
         id: 'ai-eval',
         title: 'AI Code & Logic Evaluator',
         period: 'Jan 2025 – Present',
+        stats: [
+          { value: 'AI',      label: 'Model Evaluation' },
+          { value: 'QA',      label: 'Code Review' },
+          { value: '100%',    label: 'Remote' },
+        ],
         bullets: [
-          'Evaluated AI-generated code and software solutions for correctness, constraint adherence, and structural reliability.',
-          'Designed adversarial test inputs to expose model failure modes and improve evaluation datasets.',
-          'Analyzed model outputs to identify recurring logic errors and inform improvements to AI QA processes.',
+          { cat: 'EVAL',      text: 'Evaluated AI-generated code and software solutions for correctness, constraint adherence, and structural reliability.' },
+          { cat: 'TESTING',   text: 'Designed adversarial test inputs to expose model failure modes and improve evaluation datasets.' },
+          { cat: 'ANALYSIS',  text: 'Analyzed model outputs to identify recurring logic errors and inform improvements to AI QA processes.' },
         ],
         tags: ['Python', 'AI Evaluation', 'Code Review', 'QA'],
       },
@@ -74,6 +89,22 @@ const PROJECTS = [
     demo: { user: 'demo', pass: 'Badminton1!' },
   },
 ]
+
+// ── Helpers ──────────────────────────────────────────────────────────
+
+// Wraps numbers (e.g. 600+, 50%, 200+) in a green highlight span
+function HighlightNumbers({ text }) {
+  const parts = text.split(/(\d[\d,]*[+%]?(?:\s*(?:years?|sites?|users?|websites?))?)/gi)
+  return (
+    <>
+      {parts.map((part, i) =>
+        /^\d/.test(part)
+          ? <span key={i} className="num-highlight">{part}</span>
+          : part
+      )}
+    </>
+  )
+}
 
 // ── Components ───────────────────────────────────────────────────────
 
@@ -169,9 +200,29 @@ function RoleDetail({ role }) {
     <div className="role-detail">
       <h3 className="role-title">{role.title}</h3>
       <p className="role-period">{role.period}</p>
+
+      {/* Stat cards */}
+      {role.stats && (
+        <div className="stat-strip">
+          {role.stats.map(s => (
+            <div className="stat-card" key={s.label}>
+              <span className="stat-value">{s.value}</span>
+              <span className="stat-label">{s.label}</span>
+            </div>
+          ))}
+        </div>
+      )}
+
+      {/* Categorised bullets */}
       <ul className="role-bullets">
-        {role.bullets.map((b, i) => <li key={i}>{b}</li>)}
+        {role.bullets.map((b, i) => (
+          <li key={i}>
+            <span className="bullet-cat">{b.cat}</span>
+            <span className="bullet-text"><HighlightNumbers text={b.text} /></span>
+          </li>
+        ))}
       </ul>
+
       <div className="role-tags">
         {role.tags.map(t => <span className="role-tag" key={t}>{t}</span>)}
       </div>

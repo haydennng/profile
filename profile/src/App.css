@@ -257,6 +257,82 @@
   color: var(--text-faint);
 }
 
+/* ── Stat Strip ─────────────────────────────────────────── */
+.stat-strip {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+
+.stat-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-top: 2px solid var(--accent);
+  border-radius: 4px;
+  padding: 0.6rem 1rem;
+  min-width: 80px;
+  flex: 1;
+  max-width: 120px;
+}
+
+.stat-value {
+  font-size: 1.4rem;
+  font-weight: 900;
+  color: var(--accent);
+  line-height: 1;
+  margin-bottom: 0.3rem;
+}
+
+.stat-label {
+  font-size: 0.65rem;
+  color: var(--text-faint);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  text-align: center;
+  line-height: 1.3;
+}
+
+/* ── Bullet categories & number highlights ───────────────── */
+.role-bullets li {
+  display: flex;
+  align-items: baseline;
+  gap: 0.65rem;
+  padding-left: 0;
+}
+
+.role-bullets li::before {
+  display: none;
+}
+
+.bullet-cat {
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+  background: rgba(0, 230, 118, 0.08);
+  border: 1px solid rgba(0, 230, 118, 0.2);
+  border-radius: 3px;
+  padding: 0.15rem 0.4rem;
+  flex-shrink: 0;
+  align-self: flex-start;
+  margin-top: 0.2rem;
+}
+
+.bullet-text {
+  color: var(--text-muted);
+  font-size: 0.88rem;
+  line-height: 1.65;
+}
+
+.num-highlight {
+  color: var(--accent);
+  font-weight: 700;
+}
+
 /* ── Tags (shared) ──────────────────────────────────────── */
 .role-tags {
   display: flex;

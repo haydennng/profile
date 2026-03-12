@@ -616,4 +616,36 @@
   .stat-strip {
     padding-top: 0;
   }
+
+  .app {
+    height: auto;
+    min-height: 100vh;
+    overflow: visible;
+    padding: 1.25rem 1rem;
+  }
+
+  .section {
+    overflow: visible;
+    min-height: auto;
+  }
+
+  .exp-layout {
+    height: auto;
+    min-height: 300px;
+  }
+
+  .file-tree {
+    overflow-y: visible;
+    height: auto;
+  }
+
+  .role-detail {
+    overflow-y: visible;
+    height: auto;
+  }
+
+  .section-scroll {
+    height: auto;
+    overflow-y: visible;
+  }
 }

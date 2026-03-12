@@ -36,6 +36,18 @@ html, body {
   flex-direction: column;
 }
 
+@media (max-width: 640px) {
+  html, body {
+    height: auto;
+    overflow: auto;
+  }
+
+  #root {
+    height: auto;
+    min-height: 100vh;
+  }
+}
+
 a {
   color: var(--text-muted);
   text-decoration: none;

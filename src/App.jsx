@@ -149,12 +149,20 @@ function Header() {
   )
 }
 
+const BIO_SHORT = 'Full-stack developer with 8+ years of experience building secure, data-driven web applications and internal platforms.'
+const BIO_FULL  = 'Full-stack developer with 8+ years of experience building secure, data-driven web applications and internal platforms. Experienced across backend systems, databases, and modern frontend frameworks including ColdFusion, PHP, MySQL, JavaScript, and React. Known for developing reliable solutions that streamline workflows, improve data accuracy, and support high-traffic production environments.'
+
 function Hero() {
+  const [expanded, setExpanded] = useState(false)
   return (
     <section className="hero-bio">
       <p>
-        Full-stack developer with 8+ years of experience building secure, data-driven web applications and internal platforms. Experienced across backend systems, databases, and modern frontend frameworks including ColdFusion, PHP, MySQL, JavaScript, and React. Known for developing reliable solutions that streamline workflows, improve data accuracy, and support high-traffic production environments.
+        <span className="bio-mobile-only">{expanded ? BIO_FULL : BIO_SHORT}</span>
+        <span className="bio-desktop-only">{BIO_FULL}</span>
       </p>
+      <button className="bio-toggle bio-mobile-only" onClick={() => setExpanded(e => !e)}>
+        {expanded ? '− less' : '+ more'}
+      </button>
     </section>
   )
 }

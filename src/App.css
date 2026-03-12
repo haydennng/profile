@@ -86,6 +86,28 @@
   line-height: 1.6;
 }
 
+.bio-toggle {
+  font-size: 0.78rem;
+  color: var(--accent);
+  margin-top: 0.3rem;
+  padding: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.bio-mobile-only { display: inline; }
+.bio-desktop-only { display: inline; }
+
+@media (min-width: 641px) {
+  .bio-mobile-only { display: none; }
+}
+
+@media (max-width: 640px) {
+  .bio-desktop-only { display: none; }
+}
+
 /* ── Section Nav ────────────────────────────────────────── */
 .section-nav {
   display: flex;

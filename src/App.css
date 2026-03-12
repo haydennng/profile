@@ -527,4 +527,12 @@
     flex-direction: column;
     gap: 0.5rem;
   }
+
+  .role-header {
+    flex-direction: column;
+  }
+
+  .stat-strip {
+    padding-top: 0;
+  }
 }

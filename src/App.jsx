@@ -275,28 +275,79 @@ function ExperienceSection() {
 }
 
 function ProjectsSection() {
+  const [openProject, setOpenProject] = useState(PROJECTS[0]?.name)
+
   return (
     <section className="section" id="projects">
-      <div className="section-scroll"><div className="projects-list">
-        {PROJECTS.map(p => (
-          <div className="proj-card" key={p.name}>
-            <div className="proj-header">
-              <h3 className="proj-name">{p.name}</h3>
-              <a href={p.url} target="_blank" rel="noreferrer" className="proj-link">↗ Live</a>
+      <div className="section-scroll">
+
+        {/* Desktop: cards */}
+        <div className="projects-desktop">
+          {PROJECTS.map(p => (
+            <div className="proj-card" key={p.name}>
+              <div className="proj-header">
+                <h3 className="proj-name">{p.name}</h3>
+                <a href={p.url} target="_blank" rel="noreferrer" className="proj-link">↗ Live</a>
+              </div>
+              <p className="proj-subtitle">{p.subtitle}</p>
+              <p className="proj-desc">{p.desc}</p>
+              <div className="role-tags">
+                {p.tags.map(t => <span className="role-tag" key={t}>{t}</span>)}
+              </div>
+              {p.demo && (
+                <p className="proj-demo">
+                  Demo — <code>{p.demo.user}</code> / <code>{p.demo.pass}</code>
+                </p>
+              )}
             </div>
-            <p className="proj-subtitle">{p.subtitle}</p>
-            <p className="proj-desc">{p.desc}</p>
-            <div className="role-tags">
-              {p.tags.map(t => <span className="role-tag" key={t}>{t}</span>)}
-            </div>
-            {p.demo && (
-              <p className="proj-demo">
-                Demo — <code>{p.demo.user}</code> / <code>{p.demo.pass}</code>
-              </p>
-            )}
-          </div>
-        ))}
-      </div></div>
+          ))}
+        </div>
+
+        {/* Mobile: accordion */}
+        <div className="projects-mobile">
+          {PROJECTS.map(p => {
+            const isOpen = openProject === p.name
+            return (
+              <div className="proj-accordion" key={p.name}>
+                <button
+                  className="proj-accordion-header"
+                  onClick={() => setOpenProject(isOpen ? null : p.name)}
+                >
+                  <div className="proj-accordion-title">
+                    <span className="proj-name">{p.name}</span>
+                    <span className="proj-subtitle">{p.subtitle}</span>
+                  </div>
+                  <div className="proj-accordion-right">
+                    <a
+                      href={p.url}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="proj-link"
+                      onClick={e => e.stopPropagation()}
+                    >↗</a>
+                    <span className="proj-chevron">{isOpen ? '▲' : '▼'}</span>
+                  </div>
+                </button>
+
+                {isOpen && (
+                  <div className="proj-accordion-body">
+                    <p className="proj-desc">{p.desc}</p>
+                    <div className="role-tags">
+                      {p.tags.map(t => <span className="role-tag" key={t}>{t}</span>)}
+                    </div>
+                    {p.demo && (
+                      <p className="proj-demo">
+                        Demo — <code>{p.demo.user}</code> / <code>{p.demo.pass}</code>
+                      </p>
+                    )}
+                  </div>
+                )}
+              </div>
+            )
+          })}
+        </div>
+
+      </div>
     </section>
   )
 }
